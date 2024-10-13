@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Message</title>
+</head>
+<body>
+    <h1>Welcome, {{ user }}!</h1>
+
+    <form action="/post" method="post">
+        <label for="message">Enter a message:</label>
+        <textarea id="message" name="message"></textarea>
+        <br>
+        <button type="submit">Post Message</button>
+    </form>
+
+    {% if message %}
+        <h2>Your Message:</h2>
+        <p>{{ message|safe }}</p>  <!-- Vulnerable to XSS: The message is reflected without sanitization -->
+    {% endif %}
+</body>
+</html>

