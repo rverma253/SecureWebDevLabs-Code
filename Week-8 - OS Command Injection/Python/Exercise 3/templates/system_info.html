@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>System Info</title>
+</head>
+<body>
+    <h2>System Info</h2>
+    <form method="GET" action="/system_info">
+        <label>Command:</label>
+        <input type="text" name="command" placeholder="whoami"><br>
+        <input type="submit" value="Execute Command">
+    </form>
+    <pre>{{ content }}</pre>
+</body>
+</html>
