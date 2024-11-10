@@ -1,4 +1,4 @@
-# Flask Authentication App
+# Hashed Password
 
 This is a simple Flask web application that demonstrates basic user authentication, including user registration and login. The project uses SQLite for the database and Flask-Bcrypt for password hashing to enhance security.
 
