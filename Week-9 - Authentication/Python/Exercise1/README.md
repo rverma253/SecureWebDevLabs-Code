@@ -15,6 +15,9 @@ This is a simple Flask web application that demonstrates basic user authenticati
 
 ## Setup Instructions
 
-1. **Install the required packages**:
-   ```bash
+**Install the required packages**:
    pip install Flask Flask-Bcrypt Flask-SQLAlchemy
+
+## Reference
+https://www.datacamp.com/tutorial/sqlalchemy-tutorial-examples
+https://docs.sqlalchemy.org/en/20/tutorial/index.html
