@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <style>
+        #strength {
+            height: 10px;
+            width: 100%;
+            background-color: #ddd;
+        }
+        #strength-bar {
+            height: 10px;
+            width: 0%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form method="post" action="/">
+        First Name: <input type="text" name="first_name"><br>
+        Last Name: <input type="text" name="last_name"><br>
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password" id="password"><br>
+        Confirm Password: <input type="password" name="confirm_password"><br>
+        <div id="strength">
+            <div id="strength-bar"></div>
+			<div id="crack-time"></div>
+        </div>
+		<br />
+        <input type="submit" value="Register">
+    </form>
+    <script>
+        var strength = {
+            0: "Worst",
+            1: "Bad",
+            2: "Weak",
+            3: "Good",
+            4: "Strong"
+        }
+		var strengthColor = {
+			0: "red",
+			1: "orange",
+			2: "yellow",
+			3: "lightgreen",
+			4: "green"
+		};
+
+        var password = document.getElementById('password');
+        var meter = document.getElementById('strength-bar');
+		var crackTimeDisplay = document.getElementById('crack-time');
+        password.addEventListener('input', function() {
+            var val = password.value;
+            var result = zxcvbn(val);
+			console.log(result);
+
+            meter.style.width = result.score * 25 + '%';
+            meter.style.backgroundColor = strength[result.score];
+			meter.style.backgroundColor = strengthColor[result.score];
+			crackTimeDisplay.innerHTML = 'Crack time: ' + result.crack_times_display.offline_slow_hashing_1e4_per_second;
+
+        });
+    </script>
+</body>
+</html>
