@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form method="post" action="/">
+        {{ form.hidden_tag() }}
+        First Name: {{ form.first_name(size=32) }}<br>
+        {% for error in form.first_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        Last Name: {{ form.last_name(size=32) }}<br>
+        {% for error in form.last_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        Username: {{ form.username(size=32) }}<br>
+        {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        Password: {{ form.password(size=32) }}<br>
+        {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        Confirm Password: {{ form.confirm(size=32) }}<br>
+        {% for error in form.confirm.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
